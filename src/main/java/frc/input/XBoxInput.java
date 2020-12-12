@@ -13,29 +13,4 @@ public class XBoxInput extends InputMethod {
   {
       return controller.getAButton();
   }
-  @Override
-  public double leftSidePower() 
-  {
-      return controller.getY(Hand.kLeft);
-  }
-  @Override
-  public double rightSidePower() 
-  {
-      return controller.getY(Hand.kRight);
-  }
-  @Override
-  public double shooterPower() 
-  {
-  return controller.getLT();
-  }
-  @Override
-  public boolean controllerPower() 
-  {
-  return controller.getBButton();
-  }
-  @Override
-  public boolean climbPower()
-  {
-    return controller.getYButton();
-  }
 }
