@@ -2,6 +2,7 @@ package frc.systems;
 
 import frc.input.InputMethod;
 import frc.wpi.first.wpilibj.Spark;
+import frc.robot.*;
 
 /**
  * Indexer System
@@ -17,7 +18,7 @@ public class IndexerSystem extends RobotSystem{
    */
   public IndexerSystem(InputMethod input) {
     super(input);
-    indexerMotor = new Spark(RobotMap.INDEXER);
+    
   }
 
   /**
@@ -25,9 +26,27 @@ public class IndexerSystem extends RobotSystem{
    * Separate from constructor to allow skipping during testing.
    */
   public void init();
+  {
+    indexerMotor = new Spark(RobotMap.INDEXER);
+  }
 
   /**
    * Runs the system. Intended to be called periodically and rapidly
    */
-  public void run();
+  public void run()
+  {
+    if (input.shouldIntake())
+    {
+        setSpeed(1);
+    }
+    else
+    {
+        setSpeed(0);
+    }
+  }
+
+  public void setSpeed(double speed)
+  {
+    indexerMotor.setSpeed(speed);
+  }
 }
